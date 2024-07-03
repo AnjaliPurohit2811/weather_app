@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/screen/homescreen/home_screen.dart';
+import 'package:weather_app/screen/mainscreen/main_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -24,7 +25,7 @@ class SplashScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 100),
             child: InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen(),));
               },
               child: Container(
                 height: 70,

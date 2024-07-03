@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../homescreen/home_screen.dart';
 import '../provider/weather_provider.dart';
+ // Import the DetailScreen
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  const MainScreen({Key? key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -55,58 +57,71 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             SizedBox(height: 30),
-            Container(
-              height: 120,
-              width: 380,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.6),
-                    blurRadius: 2,
-                    spreadRadius: 1,
-                    offset: Offset(0, 5),
-                  ),
-                ],
-                color: Color(0xff3C2E6C),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(20),
-                  topLeft: Radius.circular(20),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          providerTrue.data!.location.name,
-                          style: TextStyle(color: Colors.white, fontSize: 22),
-                        ),
-                        Text(
-                          '${providerTrue.data!.current.tempC} °C',
-                          style: TextStyle(color: Colors.white, fontSize: 22),
-                        ),
-                        Text(
-                          providerTrue.data!.current.conditionText,
-                          style: TextStyle(color: Colors.white, fontSize: 22),
-                        ),
-                      ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(
+                      location: providerTrue.data!.location,
+                      current: providerTrue.data!.current,
                     ),
                   ),
-                  Spacer(),
-                  Container(
-                    height: 150,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage('https:${providerTrue.data!.current.conditionIcon}'),
+                );
+              },
+              child: Container(
+                height: 120,
+                width: 380,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.6),
+                      blurRadius: 2,
+                      spreadRadius: 1,
+                      offset: Offset(0, 5),
+                    ),
+                  ],
+                  color: Color(0xff3C2E6C),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(20),
+                    topLeft: Radius.circular(20),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            providerTrue.data!.location.name,
+                            style: TextStyle(color: Colors.white, fontSize: 22),
+                          ),
+                          Text(
+                            '${providerTrue.data!.current.tempC} °C',
+                            style: TextStyle(color: Colors.white, fontSize: 22),
+                          ),
+                          Text(
+                            providerTrue.data!.current.conditionText,
+                            style: TextStyle(color: Colors.white, fontSize: 22),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                ],
+                    Spacer(),
+                    Container(
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage('https:${providerTrue.data!.current.conditionIcon}'),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 30),
@@ -116,49 +131,114 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    providerFalse.changeLocation('New York');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('New York'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    providerFalse.changeLocation('London');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('London'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    providerFalse.changeLocation('Tokyo');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('Tokyo'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    providerFalse.changeLocation('Sydney');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('Sydney'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    providerFalse.changeLocation('Paris');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('Paris'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    providerFalse.changeLocation('Moscow');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('Moscow'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    providerFalse.changeLocation('Cairo');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('Cairo'),
                 ),
                 ElevatedButton(
+                  //style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Color(0xff))),
                   onPressed: () {
-                    providerFalse.changeLocation('Rio de Janeiro');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          location: providerTrue.data!.location,
+                          current: providerTrue.data!.current,
+                        ),
+                      ),
+                    );
                   },
                   child: Text('Rio de Janeiro'),
                 ),
